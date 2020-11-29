@@ -3,6 +3,7 @@ const router = express.Router();
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const passport = require('passport');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -97,5 +98,20 @@ router.post('/login', (req, res) => {
                 })
         })
 })
+
+// @route GET api/users/current
+// @desc Return current user
+// @access Private
+router.get(
+    '/current',
+    passport.authenticate('jwt',{session : false}),
+    (req, res) => {
+    res.json({
+        id: req.user.id,
+        name: req.user.name,
+        email: req.user.email,
+        avatar: req.user.avatar
+    })}
+);
 
 module.exports = router;
