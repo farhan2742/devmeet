@@ -54,6 +54,17 @@ router.get('/', (req, res) => {
         .catch(err => res.status(404).json({Error: "There are no posts to display."}));
 });
 
+
+// @route GET api/posts/:id
+// @desc Get post by id
+// @access Public
+
+router.get('/:id', (req, res) => {
+    Post.findById(req.params.id)
+        .then(posts => res.json(posts))
+        .catch(err => res.status(404).json({Error: "There is no post to display."}));
+});
+
 /*
 // @route GET api/profile
 // @desc Get current users profile
