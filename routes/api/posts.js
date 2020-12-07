@@ -10,6 +10,7 @@ const ValidatePostInput = require('../../validation/post');
 // Load Post Model
 
 const User = require('../../models/Post');
+const Post = require('../../models/Post');
 
 // @route GET api/profile/test
 // @desc Tests profile route
@@ -39,6 +40,18 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
 
     newPost.save().then(post => res.json(post))
 
+});
+
+
+// @route GET api/posts
+// @desc Get Post
+// @access Public
+
+router.get('/', (req, res) => {
+    Post.find()
+        .sort({date: -1})
+        .then(posts => res.json(posts))
+        .catch(err => res.status(404).json({Error: "There are no posts to display."}));
 });
 
 /*
