@@ -1,7 +1,7 @@
 {
-  "name": "farhan-portfolio",
+  "name": "dev-meet",
   "version": "1.0.0",
-  "description": "This is a portfolio website for Farhan Kiyani a progressive web app developer",
+  "description": "A social network made by a developer for other developers.",
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",

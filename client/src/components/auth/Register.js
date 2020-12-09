@@ -41,10 +41,6 @@ import { registerUser } from '../../actions/authActions';
         };
 
         this.props.registerUser(newUser, this.props.history);
-
-        /*
-        
-        */
     }
 
     render() {
