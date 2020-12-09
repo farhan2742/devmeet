@@ -17,7 +17,7 @@ const SelectListGroup = ({
     ))
     return (
         <div className="form-group">
-            <Select 
+            <select 
                 className={
                     classnames(
                         'form-control form-control-lg', {
@@ -30,7 +30,7 @@ const SelectListGroup = ({
                 onChange={onChange}
             >
                 {selectOptions}
-            </Select>
+            </select>
             {info && 
                 <small className="form-text text-muted">
                     {info}
